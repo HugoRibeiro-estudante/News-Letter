@@ -1,17 +1,17 @@
 package com.iftm.newsLetter.models.dtos;
 
+import java.io.Serializable;
 import java.util.List;
 
+import com.iftm.newsLetter.models.News;
 import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.iftm.newsLetter.models.Post;
 
-@Document(collection = "news")
-public class NewsDTO {
 
-    @Id
+public class NewsDTO implements Serializable {
+
+
     private ObjectId id;
     private String title;
     private String date;
@@ -31,6 +31,26 @@ public class NewsDTO {
         this.posts = posts;
     }
 
+    public NewsDTO(News news) {
+        if(news.getId() != null)
+            this.id = news.getId();
+        this.title = news.getTitle();
+        this.date = news.getDate();
+        this.editorName = news.getEditorName();
+        this.posts = news.getPosts();
+    }
+
+    public News toNews() {
+        ObjectId id = null;
+        if(this.id != null)
+            id = new ObjectId(String.valueOf(this.id));
+
+        return new News(id,
+                this.title,
+                this.date,
+                this.editorName,
+                this.posts);
+    }
 
     public ObjectId getId() {
         return id;

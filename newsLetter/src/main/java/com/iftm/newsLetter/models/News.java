@@ -71,7 +71,7 @@ public class News {
 
 
     public List<Post> getPosts() {
-        return posts;
+        return this.posts;
     }
 
 
