@@ -1,18 +1,25 @@
 spring:
   application:
-    name: newsLetter
+    name: eureka-client-news-letter
   data:
     mongodb:
       port: 27017
       host: localhost
-      database: newsLetter
+      database: newsletter
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
+#  rabbitmq:
+#    addresses: amqps://user:senha@jackal.rmq.cloudamqp.com/irozvcdf
+#    queue: newsLetter.queue
+#    host: jackal.rmq.cloudamqp.com
+#    port: 5672
+#    username:
+#    password:
 
-# Configuracao da porta do serviço de forma aleatoria
+# Configuracao da porta do serviï¿½o de forma aleatoria
 server:
   port: ${PORT:0}
 
@@ -24,10 +31,10 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 # RabbitMQ - Variaveis de ambiente customizadas
-softwareHouse:
+newsLetter:
   rabbitmq:
     exchange: newsLetter.exchange
-    rountingkey: newsLetter.employee.routingkey
+    rountingkey: newsLetter.news.routingkey
     queue: newsLetter.queue
 
 # Mostrar Queries MongoDB no Terminal:

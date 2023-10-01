@@ -1,8 +1,9 @@
 package com.iftm.newsLetter.models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Post {
+public class Post implements Serializable {
 
     private String title;
     private String authorName;

@@ -5,12 +5,19 @@ spring:
     mongodb:
       port: 27017
       host: localhost
-      database: myCompany
+      database: newsletter
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
+#  rabbitmq:
+#    addresses: amqps://user:senha@jackal.rmq.cloudamqp.com/irozvcdf
+#    queue: newsLetter.queue
+#    host: jackal.rmq.cloudamqp.com
+#    port: 5672
+#    username:
+#    password:
 
 # Configuracao da porta do serviço de forma aleatoria
 server:
@@ -27,7 +34,7 @@ eureka:
 newsLetter:
   rabbitmq:
     exchange: newsLetter.exchange
-    rountingkey: newsLetter.employee.routingkey
+    rountingkey: newsLetter.news.routingkey
     queue: newsLetter.queue
 
 # Mostrar Queries MongoDB no Terminal:

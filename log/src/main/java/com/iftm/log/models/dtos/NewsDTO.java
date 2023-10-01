@@ -2,7 +2,6 @@ package com.iftm.log.models.dtos;
 
 import java.io.Serializable;
 import java.util.List;
-
 import com.iftm.log.models.Post;
 
 public class NewsDTO  implements Serializable{
