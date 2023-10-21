@@ -41,6 +41,9 @@ newsLetter:
     rountingkey: newsLetter.news.routingkey
     queue: newsLetter.queue
 
+firebase:
+credential-file-name: firebase-account.json
+
 # Mostrar Queries MongoDB no Terminal:
 logging:
   level:
