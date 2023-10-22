@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-
 import java.io.IOException;
 
 @Configuration
@@ -32,7 +31,8 @@ public class FirebaseConfig {
         return FirebaseApp.initializeApp(options);
     }
 
-    // resposavel por acessar o documento de credenciais no resoucers @Bean
+    // resposavel por acessar o documento de credenciais no resoucers
+    @Bean
     public GoogleCredentials googleCredentials() throws IOException {
         var classPathResource = new ClassPathResource(credentialFileName).getInputStream();
         return GoogleCredentials.fromStream(classPathResource);

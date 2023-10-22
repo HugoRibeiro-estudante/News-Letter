@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FirebaseMessagingService {
+
     @Autowired
     private FirebaseMessaging firebaseMessaging;
+
     public ResponseEntity<?> sendNotification(NotificationMessage notificationMessage) {
         var notification = Notification
                 .builder()
@@ -21,15 +23,18 @@ public class FirebaseMessagingService {
                 .setBody(notificationMessage.getBody())
                 .setImage(notificationMessage.getImage())
                 .build();
+
         var message = Message
                 .builder()
                 .setToken(notificationMessage.getRecipientToken())
                 .setNotification(notification)
                 .putAllData(notificationMessage.getData())
                 .build();
+
         try {
             firebaseMessaging.send(message);
             return ResponseEntity.ok().build();
+
         } catch (FirebaseMessagingException ex) {
             ex.printStackTrace();
             return ResponseEntity.internalServerError().build();
