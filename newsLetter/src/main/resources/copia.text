@@ -23,7 +23,7 @@ spring:
 #    username:
 #    password:
 
-# Configuracao da porta do servi�o de forma aleatoria
+# Configuracao da porta do servi?o de forma aleatoria
 server:
   port: ${PORT:0}
 
