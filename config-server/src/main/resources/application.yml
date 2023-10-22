@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          uri: https://github.com/HugoRibeiro-estudante/newsLetter-config-repo # config para reposit�rio p�blico
+          username: HugoRibeiro-estudante # config para reposit�rio privado
+          password: 263465486esr0503934S
+server:
+  port: 8888
+
